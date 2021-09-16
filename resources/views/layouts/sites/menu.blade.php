@@ -49,10 +49,10 @@
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li class="active"><a href="#">Acceuil</a></li>
-					<li><a href="#">Qui sommes nous ?</a></li>
-					<li><a href="#">Nos Biens</a></li>
-					<li><a href="#">Notre Equipes</a></li>
-					<li><a href="#">Nous Contacter</a></li>
+					<li><a href="#">Qui sommes nous</a></li>
+					<li><a href="#">Biens</a></li>
+					<li><a href="#">Equipes</a></li>
+					<li><a href="#">Contacts</a></li>
 				</ul>
 			</nav>
 			<div class="submit ml-auto"><a href="#">submit listing</a></div>

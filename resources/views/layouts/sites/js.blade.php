@@ -13,3 +13,10 @@
 <script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/contact.js') }}"></script>
+<script src="{{ asset('js/blog.js') }}"></script>
+<script src="{{ asset('js/about.js') }}"></script>
+<script src="{{ asset('plugins/colorbox/jquery.colorbox-min.js') }}"></script>
+<script src="{{ asset('js/single.js') }}"></script>
+<script src="{{ asset('plugins/Isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/listings.js') }}"></script>

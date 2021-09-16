@@ -13,48 +13,38 @@
 							</div>
 							<div class="social">
 								<ul class="d-flex flex-row align-items-center justify-content-start">
-									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> --}}
 									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li> --}}
 								</ul>
 							</div>
-							<div class="footer_submit"><a href="#">submit listing</a></div>
+							{{-- <div class="footer_submit"><a href="#">submit listing</a></div> --}}
 						</div>
 					</div>
 
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
 						<div class="footer_column">
-							<div class="footer_title">Information</div>
+							<div class="footer_title">Nos contacts</div>
 							<div class="footer_info">
 								<ul>
 									<!-- Phone -->
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div><img src="images/phone-call.svg" alt=""></div>
-										<span>+546 990221 123</span>
+										<span>+225 0123456789</span>
 									</li>
 									<!-- Address -->
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div><img src="images/placeholder.svg" alt=""></div>
-										<span>Main Str, no 23, New York</span>
+										<span>Université Nangui Abrogoua, Abidjan, Côte d'Ivoire</span>
 									</li>
 									<!-- Email -->
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div><img src="images/envelope.svg" alt=""></div>
-										<span>hosting@contact.com</span>
+										<span>immo_app@contact.com</span>
 									</li>
-								</ul>
-							</div>
-							<div class="footer_links usefull_links">
-								<div class="footer_title">Usefull Links</div>
-								<ul>
-									<li><a href="#">Testimonials</a></li>
-									<li><a href="#">Listings</a></li>
-									<li><a href="#">Featured Properties</a></li>
-									<li><a href="#">Contact Agents</a></li>
-									<li><a href="#">About us</a></li>
 								</ul>
 							</div>
 						</div>
@@ -63,24 +53,20 @@
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
 						<div class="footer_links">
-							<div class="footer_title">Properties Types</div>
+							<div class="footer_title">Navigation</div>
 							<ul>
-								<li><a href="#">Properties for rent</a></li>
-								<li><a href="#">Properties for sale</a></li>
-								<li><a href="#">Commercial</a></li>
-								<li><a href="#">Homes</a></li>
-								<li><a href="#">Villas</a></li>
-								<li><a href="#">Office</a></li>
-								<li><a href="#">Residential</a></li>
-								<li><a href="#">Appartments</a></li>
-								<li><a href="#">Off plan</a></li>
+								<li><a href="#">Acceuil</a></li>
+								<li><a href="#">Qui sommes nous ?</a></li>
+								<li><a href="#">Nos Biens</a></li>
+								<li><a href="#">Notre Equipes</a></li>
+								<li><a href="#">Nous contacter</a></li>
 							</ul>
 						</div>
 					</div>
 
 					<!-- Footer Column -->
 					<div class="col-xl-3 col-lg-6 footer_col">
-						<div class="footer_title">Featured Property</div>
+						<div class="footer_title">Offre du Jours</div>
 						<div class="listing_small">
 							<div class="listing_small_image">
 								<div>
@@ -128,15 +114,7 @@
 							<div class="copyright order-md-1 order-2"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tout droit réservé | Immo-APP <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Madexe</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-							<nav class="footer_nav order-md-2 order-1 ml-md-auto">
-								<ul class="d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About us</a></li>
-									<li><a href="listings.html">Listings</a></li>
-									<li><a href="blog.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</nav>
+
 						</div>
 					</div>
 				</div>
