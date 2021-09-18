@@ -18,7 +18,17 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'nom',
+        'premons',
+        'sexe',
+        'date2naissance',
+        'lieu2naissance',
+        'tel',
+        'mobile',
+        'fonction',
+        'enligne',
+        'photo',
+        'active',
         'email',
         'password',
     ];
@@ -41,4 +51,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function emetteur()
+    {
+        return $this->hasMany(Message::class,'emetteur');
+    }
+
+    public function recepteur()
+    {
+        return $this->hasMany(User::class,'receveur');
+    }
+
+    public function contrat()
+    {
+        return $this->hasMany(Contrat::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsToMany(Role::class,'user_roles','user_id','role_id');
+    }
 }

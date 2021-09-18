@@ -1,1 +1,1 @@
-@include('site.contact')
+@include('site.home')
