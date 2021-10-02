@@ -4,7 +4,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.3.4/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.3.4/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.3.4/animate.css') }}">
-{{--
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog_responsive.css') }}"> --}}
 @yield('css')

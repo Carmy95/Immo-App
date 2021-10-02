@@ -55,11 +55,11 @@
 						<div class="footer_links">
 							<div class="footer_title">Navigation</div>
 							<ul>
-								<li><a href="#">Acceuil</a></li>
-								<li><a href="#">Qui sommes nous ?</a></li>
-								<li><a href="#">Nos Biens</a></li>
-								<li><a href="#">Notre Equipes</a></li>
-								<li><a href="#">Nous contacter</a></li>
+								<li><a href="{{ route('home') }}">Acceuil</a></li>
+								<li><a href="{{ route('about') }}">Qui sommes nous ?</a></li>
+								<li><a href="{{ route('bien') }}">Nos Biens</a></li>
+								<li><a href="{{ route('detail') }}">Notre Equipes</a></li>
+								<li><a href="{{ route('contact') }}">Nous contacter</a></li>
 							</ul>
 						</div>
 					</div>

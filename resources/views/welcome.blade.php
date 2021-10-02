@@ -1,1 +1,1 @@
-@include('site.home')
+@include('admin.accueil')

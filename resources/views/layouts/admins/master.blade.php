@@ -1,45 +1,74 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 2</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Agency - Responsive Flat Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="ThemeDesign" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-@include('layouts.admins.css')
+    <link rel="shortcut icon" href="assets/images/faviicon.png">
+
+    <!--Morris Chart CSS -->
+    @include('layouts.admins.css')
+
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+<body class="fixed-left">
 
-  @include('layouts.admins.navbar')
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner"></div>
+        </div>
+    </div>
 
-  @include('layouts.admins.menu')
+    <!-- Begin page -->
+    <div id="wrapper">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        @include('layouts.admins.menu')
+        <!-- Left Sidebar End -->
 
-      @yield('content')
+        <!-- Start right Content here -->
 
-  </div>
-  <!-- /.content-wrapper -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+                <!-- Top Bar Start -->
+                @include('layouts.admins.navbar')
+                <!-- Top Bar End -->
 
+                <div class="page-content-wrapper ">
 
-  @include('layouts.admins.footer')
-</div>
-<!-- ./wrapper -->
+                    <div class="container-fluid">
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-@include('layouts.admins.js')
+                        @yield('content')
+
+                    </div>
+                    <!-- container -->
+
+                </div>
+                <!-- Page content Wrapper -->
+
+            </div>
+            <!-- content -->
+
+            @include('layouts.admins.footers')
+
+        </div>
+        <!-- End Right content here -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- jQuery  -->
+    @include('layouts.admins.js')
+
 </body>
+
 </html>

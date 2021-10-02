@@ -17,7 +17,7 @@ class CreateSlidersTable extends Migration
             $table->id();
             $table->string('photo');
             $table->string('titre');
-            $table->string('position');
+            $table->string('active');
             $table->date('date_debut');
             $table->date('date_fin')->nullable();
             $table->timestamps();
