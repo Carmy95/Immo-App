@@ -13,7 +13,7 @@ class RoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'role' => 'required | min:3'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'role.required' => 'Veuillez entrer l\'intitulé du rôle svp !',
+            'role.min' => 'L\'intitulé du rôle doit contenir au moins :min caractères !'
         ];
     }
 }

@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\BienController;
+use App\Http\Controllers\CommuneController;
+use App\Http\Controllers\EtatController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\VilleController;
+use App\Http\Controllers\VisiteurController;
 use Illuminate\Support\Facades\Route;
 
 /*

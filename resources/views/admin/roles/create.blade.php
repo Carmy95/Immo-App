@@ -47,41 +47,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if ($data->isNotEmpty())
+                            @foreach ($data as $item )
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->libelle }}</td>
+                                    <td><a href="{{ route('roles.edit', $item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
+                                    <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="3">Aucn rôle enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links() }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -93,10 +77,16 @@
 
                 <h4 class="mt-0 header-title">Formulaire d'Ajout</h4>
 
-                <form class="" action="#">
+                <form class="" method="POST" action="{{ route('roles.store') }}">
+                    @csrf
                     <div class="form-group">
                         <label>Intitulé du rôle</label>
-                        <input type="text" class="form-control" required placeholder="Nom du rôle"/>
+                        <input type="text" name="role" value="{{ old('role') }}"  class="form-control @error('role') is-invalid @enderror" placeholder="Nom du rôle"/>
+                        @error('role')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <div>
