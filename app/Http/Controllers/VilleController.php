@@ -14,7 +14,7 @@ class VilleController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.villes.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class VilleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.villes.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class VilleController extends Controller
      */
     public function edit(Ville $ville)
     {
-        //
+        return view('admin.villes.edit');
     }
 
     /**

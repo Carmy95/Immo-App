@@ -14,7 +14,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.sliders.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sliders.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class SliderController extends Controller
      */
     public function show(Slider $slider)
     {
-        //
+        return view('admin.sliders.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        return view('admin.sliders.edit');
     }
 
     /**

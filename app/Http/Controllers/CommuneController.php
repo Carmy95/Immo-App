@@ -14,7 +14,7 @@ class CommuneController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.communes.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CommuneController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.communes.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class CommuneController extends Controller
      */
     public function edit(Commune $commune)
     {
-        //
+        return view('admin.communes.edit');
     }
 
     /**

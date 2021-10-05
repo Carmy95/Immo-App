@@ -14,7 +14,7 @@ class BienController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.biens.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class BienController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.biens.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class BienController extends Controller
      */
     public function show(Bien $bien)
     {
-        //
+        return view('admin.biens.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class BienController extends Controller
      */
     public function edit(Bien $bien)
     {
-        //
+        return view('admin.biens.edit');
     }
 
     /**

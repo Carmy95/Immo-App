@@ -14,7 +14,7 @@ class EtatController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.etats.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class EtatController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.etats.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class EtatController extends Controller
      */
     public function edit(Etat $etat)
     {
-        //
+        return view('admin.etats.edit');
     }
 
     /**

@@ -17,12 +17,12 @@ class CreateBiensTable extends Migration
             $table->id();
             $table->string('libelle');
             $table->integer('superficie');
-            $table->integer('chambre');
-            $table->integer('sejour');
-            $table->integer('wc');
-            $table->integer('cuisine');
-            $table->integer('salle_manger');
-            $table->integer('garage');
+            $table->integer('chambre')->nullable();
+            $table->integer('sejour')->nullable();
+            $table->integer('wc')->nullable();
+            $table->integer('cuisine')->nullable();
+            $table->integer('salle_manger')->nullable();
+            $table->integer('garage')->nullable();
             $table->text('description');
             $table->integer('prix');
             $table->string('echeance')->nullable();

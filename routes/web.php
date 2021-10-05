@@ -32,6 +32,12 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/gestion_du_personnel', [HomeController::class, 'home_presonnel'])->name('personnel.home')->middleware('auth');
 
 Route::resource('roles', RoleController::class);
+Route::resource('biens', BienController::class);
+Route::resource('communes', CommuneController::class);
+Route::resource('etats', EtatController::class);
+Route::resource('sliders', SliderController::class);
+Route::resource('villes', VilleController::class);
+Route::resource('visiteurs', VisiteurController::class);
 
 
 

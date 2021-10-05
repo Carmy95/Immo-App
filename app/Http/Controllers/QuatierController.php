@@ -14,7 +14,7 @@ class QuatierController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.quarties.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class QuatierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.quarties.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class QuatierController extends Controller
      */
     public function edit(Quatier $quatier)
     {
-        //
+        return view('admin.quarties.edit');
     }
 
     /**

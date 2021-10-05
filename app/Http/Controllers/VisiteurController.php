@@ -14,7 +14,7 @@ class VisiteurController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.visiteurs.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class VisiteurController extends Controller
      */
     public function show(Visiteur $visiteur)
     {
-        //
+        return view('admin.visiteurs.show');
     }
 
     /**
