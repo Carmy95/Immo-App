@@ -43,7 +43,7 @@
                         <tr>
                             <th>#</th>
                             <th>Libellé</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,13 +52,17 @@
                                 <tr>
                                     <th scope="row">{{ $item->id }}</th>
                                     <td>{{ $item->libelle }}</td>
-                                    <td><a href="{{ route('roles.edit', $item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                                    <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
+                                    <td><a href="{{ route('roles.edit',$item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a></td>
+                                    <td><form method="post" action="{{ route('roles.destroy', $item->id) }}"
+                                        onsubmit="return confirm('Etre vous sûre de vouloir Supprimer cet rôle ?') ">
+                                          {{ csrf_field() }}{{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-outline-danger waves-effect waves-light" title="Supprimer"><i class="ti-trash"></i></button>
+                                        </form></td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <th colspan="3">Aucn rôle enregistré pour le moment !!</th>
+                                <th colspan="4">Aucn rôle enregistré pour le moment !!</th>
                             </tr>
                         @endif
                     </tbody>

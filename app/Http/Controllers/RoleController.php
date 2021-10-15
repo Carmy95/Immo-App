@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RoleRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class RoleController extends Controller
 {
@@ -15,8 +16,9 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $title = 'Nos Rôles';
         $data = Role::paginate(5);
-        return view('admin.roles.index',compact('data'));
+        return view('admin.roles.index',compact('data','title'));
     }
 
     /**
@@ -26,8 +28,9 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $title = 'Ajouter';
         $data = Role::paginate(5);
-        return view('admin.roles.create', compact('data'));
+        return view('admin.roles.create', compact('data','title'));
     }
 
     /**
@@ -38,8 +41,10 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        dd('ok');
-        dd($request->input('role'));
+        $data = new Role();
+        $data->libelle = $request->input('role');
+        $data->save();
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -61,7 +66,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('admin.roles.edit');
+        $title = 'Modifier';
+        $data = Role::findOrFail($role->id);
+        $datas = Role::paginate(5);
+        return view('admin.roles.edit',compact('title','data','datas'));
     }
 
     /**
@@ -71,9 +79,13 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
-        //
+        $data = Role::findOrFail($role->id);
+        $data->update([
+            'libelle' => $request->input('role')
+        ]);
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -84,6 +96,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        Role::destroy($role->id);
+        return redirect()->route('roles.index');
     }
 }

@@ -46,53 +46,37 @@
                             <th>Nom</th>
                             <th>Prénoms</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
+                        @if ($data->isNotEmpty())
+                            @foreach ($data as $item )
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>@if ($item->sexe == 'H') M. @else Mme. / Mlle. @endif</td>
+                                    <td>{{ $item->nom }}</td>
+                                    <td>{{ $item->prenom }}</td>
+                                    <td>{{ $item->emaiil }}</td>
+                                    <td><a href="{{ route('visiteurs.show',$item->id) }}" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
+                                    <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a></td>
+                                    <td><form method="post" action="{{ route('visiteurs.destroy', $item->id) }}"
+                                        onsubmit="return confirm('Etre vous sûre de vouloir Supprimer cet visiteur ?') ">
+                                          {{ csrf_field() }}{{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-outline-danger waves-effect waves-light" title="Supprimer"><i class="ti-trash"></i></button>
+                                        </form></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="7">Aucn rôle enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links() }}</h4>
             </div>
         </div>
     </div> <!-- end col -->

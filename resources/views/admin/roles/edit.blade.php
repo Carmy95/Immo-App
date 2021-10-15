@@ -47,41 +47,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                    @if ($datas->isNotEmpty())
+                        @foreach ($datas as $item )
+                            <tr>
+                                <th scope="row">{{ $item->id }}</th>
+                                <td>{{ $item->libelle }}</td>
+                                <td><a href="{{ route('roles.edit', $item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
+                                <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <th colspan="3">Aucn rôle enregistré pour le moment !!</th>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links() }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -93,10 +77,12 @@
 
                 <h4 class="mt-0 header-title">Formulaire de Modification</h4>
 
-                <form class="" action="#">
+                <form class="" action="{{ route('roles.update',$data->id) }}" method="POST">
+                    @csrf @method('PUT')
                     <div class="form-group">
                         <label>Intitulé du rôle</label>
-                        <input type="text" class="form-control" required placeholder="Nom du rôle"/>
+                        <input type="hidden" name="unique" value="{{ $data->id }}">
+                        <input type="text" class="form-control" name="role" value="{{ $data->libelle }}" required placeholder="Nom du rôle"/>
                     </div>
                     <div class="form-group">
                         <div>

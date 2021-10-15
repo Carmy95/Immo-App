@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/a', function () {
     // $menu = 'personnel';
     // return view('welcome',compact('menu'));
-    return view('admin.sliders.show');
+    return view('admin.visiteurs.show');
 });
 
 Auth::routes();

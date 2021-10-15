@@ -81,7 +81,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Intitulé du rôle</label>
-                        <input type="text" name="role" value="{{ old('role') }}"  class="form-control @error('role') is-invalid @enderror" placeholder="Nom du rôle"/>
+                        <input type="text" name="role" value="{{ old('role') }}"  class="form-control @error('role') is-invalid @enderror" required placeholder="Nom du rôle"/>
                         @error('role')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

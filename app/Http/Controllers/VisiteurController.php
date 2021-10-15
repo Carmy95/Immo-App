@@ -14,7 +14,9 @@ class VisiteurController extends Controller
      */
     public function index()
     {
-        return view('admin.visiteurs.index');
+        $title = 'Nos Visiteurs';
+        $data = Visiteur::paginate(5);
+        return view('admin.visiteurs.index',compact('data','title'));
     }
 
     /**
