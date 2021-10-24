@@ -48,46 +48,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if($datas->isNotEmpty())
+                            @foreach ($datas as $item)
+                                <tr>
+                                    <th scope="row">{{ $data->id }}</th>
+                                    <td>{{ $data->libelle }}</td>
+                                    <td>{{ $data->ville->libelle }}</td>
+                                    <td><a href="{{ route('communes.edit',$item->id) }}" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="5">Aucune Commune enregistrée pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -99,20 +79,26 @@
 
                 <h4 class="mt-0 header-title">Formulaire de Modification</h4>
 
-                <form class="" action="#">
+                <form method="POST" action="{{ route('communes.update', $data->id) }}">
+                    @csrf @method('PUT')
                     <div class="form-group">
                         <label>Ville</label>
                         <div class="col-sm-10">
-                            <select class="form-control">
-                                <option>Selectionner la ville</option>
-                                <option>Large select</option>
-                                <option>Small select</option>
+                            <select name="ville" class="form-control @error('ville') is-invalid @enderror ">
+                                @if ($ville->isNotEmpty())
+                                    <option>Selectionner la ville</option>
+                                    @foreach ($ville as $item)
+                                        <option @if ($data->ville_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Aucune ville enregistrée pour le moment !</option>
+                                @endif
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Nom de la Commune</label>
-                        <input type="text" class="form-control" required placeholder="Nom de la commune"/>
+                        <input type="text" class="form-control @error('commune') is-invalid @enderror " name="commune"  value="{{ $data->libelle }}" required placeholder="Nom de la commune"/>
                     </div>
                     <div class="form-group">
                         <div>

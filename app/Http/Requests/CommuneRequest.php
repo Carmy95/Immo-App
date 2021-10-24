@@ -13,7 +13,7 @@ class CommuneRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class CommuneRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ville' => 'required',
+            'commune' => 'required | min:3'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'ville.required' => 'Veillez sélectionnez une ville SVP!!',
+            'commune.required' => 'Le nom de la commune est obligatoire SVP!!',
+            'commune.min' => 'Le nom de la commune doit comporter au moin :min caractères.'
         ];
     }
 }

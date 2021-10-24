@@ -48,46 +48,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if($data->isNotEmpty())
+                            @foreach ($data as $item)
+                                <tr>
+                                    <th scope="row">{{ $data->id }}</th>
+                                    <td>{{ $data->libelle }}</td>
+                                    <td>{{ $data->ville->libelle }}</td>
+                                    <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="5">Aucune Commune enregistrée pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -99,20 +79,36 @@
 
                 <h4 class="mt-0 header-title">Formulaire d'Ajout</h4>
 
-                <form class="" action="#">
+                <form class="" action="{{ route('communes.store') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label>Ville</label>
                         <div class="col-sm-10">
-                            <select class="form-control">
-                                <option>Selectionner la ville</option>
-                                <option>Large select</option>
-                                <option>Small select</option>
+                            <select name="ville" class="form-control" @error('ville') is-invalid @enderror>
+                                @if ($ville->isNotEmpty())
+                                    <option>Selectionner la ville</option>
+                                    @foreach ($ville as $item)
+                                        <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Aucune ville enregistrée pour le moment !</option>
+                                @endif
                             </select>
+                            @error('ville')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Intitulé de la Commune</label>
-                        <input type="text" class="form-control" required placeholder="Nom de la Commune"/>
+                        <input type="text" name="commune" class="form-control" @error('commune') is-invalid @enderror required placeholder="Nom de la Commune"/>
+                        @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <div>
