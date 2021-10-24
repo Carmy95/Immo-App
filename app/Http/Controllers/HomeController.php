@@ -52,4 +52,9 @@ class HomeController extends Controller
         $menu = 'personnel';
         return view('admin.accueil',compact('active','menu'));
     }
+
+    public function erreur()
+    {
+        return view('admin.errors.file');
+    }
 }

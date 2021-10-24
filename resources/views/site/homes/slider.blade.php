@@ -12,8 +12,8 @@
                          <div class="row">
                              <div class="col">
                                  <div class="home_content">
-                                     <div class="home_title"><h1>1243 Main Avenue Left Town</h1></div>
-                                     <div class="tag home_price_tag">$ 482 900</div><a href="#"><div class="tag tag_price">Details</div></a>
+                                     <div class="home_title"><h1>Cocody 8 Tranche, Abidjan, Côte d'Ivoire</h1></div>
+                                     <div class="tag home_price_tag">25 000 000 Fcfa</div><a href="#"><div class="tag tag_price">Details</div></a>
                                  </div>
                              </div>
                          </div>
@@ -29,8 +29,8 @@
                          <div class="row">
                              <div class="col">
                                  <div class="home_content">
-                                     <div class="home_title"><h1>1243 Main Avenue Left Town</h1></div>
-                                     <div class="tag home_price_tag">$ 482 900</div><a href="#"><div class="tag tag_price">Details</div></a>
+                                     <div class="home_title"><h1>2 Plateau Vallon</h1></div>
+                                     <div class="tag home_price_tag">250 000 fCFA /mois</div><a href="#"><div class="tag tag_price">Details</div></a>
                                  </div>
                              </div>
                          </div>
@@ -75,9 +75,9 @@
                         <form action="#" class="search_form" id="search_form">
                             <div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
                                 <div class="search_inputs d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-                                    <input type="text" class="search_input" placeholder="Property type" required="required">
-                                    <input type="text" class="search_input" placeholder="No rooms" required="required">
-                                    <input type="text" class="search_input" placeholder="Location" required="required">
+                                    <input type="text" class="search_input" placeholder="Type de Propriété" required="required">
+                                    <input type="text" class="search_input" placeholder="Nombre de Pièce" required="required">
+                                    <input type="text" class="search_input" placeholder="Localisation" required="required">
                                 </div>
                                 <button class="search_button">Rechercher</button>
                             </div>

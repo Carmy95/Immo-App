@@ -13,7 +13,7 @@ class SliderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'photo'      => 'required',
+            'titre'      => 'required | min:3',
+            'date_debut' => 'required'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'photo.required' => 'Vous devez ajouter une photo pour ulustrer votre slider svp!!',
+            'titre.required' => 'Vous devez donner un nom à votre slider svp!!',
+            'titre.min' => 'Le titre doit comporter au moins :min caractères',
+            'date_debut' => 'Vous devez choisir une date du debut de l\"affichage du slider sur le site'
         ];
     }
 }

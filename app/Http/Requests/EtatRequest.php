@@ -13,7 +13,7 @@ class EtatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return True;
     }
 
     /**
@@ -24,7 +24,15 @@ class EtatRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'etat' => 'required | min:2'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'etat.required' => 'Veuillez entrer l\'intitulé de l\'état svp !',
+            'etat.min' => 'L\'intitulé de l\'état doit contenir au moins :min caractères !'
         ];
     }
 }

@@ -48,7 +48,10 @@ class VisiteurController extends Controller
      */
     public function show(Visiteur $visiteur)
     {
-        return view('admin.visiteurs.show');
+        $title = 'Nos Visiteurs';
+        $datas = Visiteur::paginate('5');
+        $data = Visiteur::findOrFail($visiteur->id);
+        return view('admin.visiteurs.show',compact('data','datas','title'));
     }
 
     /**
@@ -82,6 +85,7 @@ class VisiteurController extends Controller
      */
     public function destroy(Visiteur $visiteur)
     {
-        //
+        Visiteur::destroy($visiteur->id);
+        return redirect()->route('visiteurs.index');
     }
 }

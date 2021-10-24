@@ -27,7 +27,7 @@
 
                 <h4 class="mt-0 header-title">Nos états</h4>
                 <div class="row">
-                    <div class="col-md-4"><a href="#" class="btn btn-outline-primary waves-effect waves-light"><i class="ti-plus"></i> Ajouter</a></div>
+                    <div class="col-md-4"><a href="{{ route('etats.create') }}" class="btn btn-outline-primary waves-effect waves-light"><i class="ti-plus"></i> Ajouter</a></div>
                     <div class="col-md-8">
                         <form action="#">
                             <div class="row">
@@ -43,45 +43,33 @@
                         <tr>
                             <th>#</th>
                             <th>Libellé</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
+                        @if ($data->isNotEmpty())
+                            @foreach ($data as $item )
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->libelle }}</td>
+                                    <td><a href="{{ route('etats.edit',$item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a></td>
+                                    <td><form method="post" action="{{ route('etats.destroy', $item->id) }}"
+                                        onsubmit="return confirm('Etre vous sûre de vouloir Supprimer cet état ?') ">
+                                          {{ csrf_field() }}{{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-outline-danger waves-effect waves-light" title="Supprimer"><i class="ti-trash"></i></button>
+                                        </form></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="4">Aucn état enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->

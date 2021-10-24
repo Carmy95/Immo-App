@@ -65,7 +65,7 @@
                 </table>
             </div>
             <div class="card-footer">
-                <h4>{{ $datas->links() }}</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -81,7 +81,6 @@
                     @csrf @method('PUT')
                     <div class="form-group">
                         <label>Intitulé du rôle</label>
-                        <input type="hidden" name="unique" value="{{ $data->id }}">
                         <input type="text" class="form-control" name="role" value="{{ $data->libelle }}" required placeholder="Nom du rôle"/>
                     </div>
                     <div class="form-group">

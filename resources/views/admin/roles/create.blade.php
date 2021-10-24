@@ -52,8 +52,8 @@
                                 <tr>
                                     <th scope="row">{{ $item->id }}</th>
                                     <td>{{ $item->libelle }}</td>
-                                    <td><a href="{{ route('roles.edit', $item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                                    <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
+                                    <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
+                                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
                                 </tr>
                             @endforeach
                         @else
@@ -65,7 +65,7 @@
                 </table>
             </div>
             <div class="card-footer">
-                <h4>{{ $data->links() }}</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->

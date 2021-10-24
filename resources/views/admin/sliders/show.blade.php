@@ -41,73 +41,53 @@
                     <table class="table table-bordered table-hover" style="text-align: center">
                         <thead>
                             <tr>
-                                <th rowspan="2">#</th>
-                                <th rowspan="2">Titre</th>
-                                <th rowspan="2">Activer</th>
-                                <th colspan="2">date</th>
-                                <th rowspan="2">Actions</th>
-                            </tr>
-                            <tr>
-                                <th>debut</th>
-                                <th>fin</th>
+                                <tr>
+                                    <th rowspan="2">#</th>
+                                    <th rowspan="2">Titre</th>
+                                    <th colspan="2">date</th>
+                                    <th rowspan="2">Activer</th>
+                                    <th rowspan="2" colspan="3">Actions</th>
+                                </tr>
+                                <tr>
+                                    <th>debut</th>
+                                    <th>fin</th>
+                                </tr>
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>1</td>
-                            <td>10/02/2020</td>
-                            <td>20/10/2021</td>
-                            <td><a href="#" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                                <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                            <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>1</td>
-                            <td>10/02/2020</td>
-                            <td>20/10/2021</td>
-                            <td><a href="#" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                                <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                            <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Mark</td>
-                            <td>1</td>
-                            <td>10/02/2020</td>
-                            <td>20/10/2021</td>
-                            <td><a href="#" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                                <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                            <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Mark</td>
-                            <td>1</td>
-                            <td>10/02/2020</td>
-                            <td>20/10/2021</td>
-                            <td><a href="#" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                                <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                            <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Mark</td>
-                            <td>1</td>
-                            <td>10/02/2020</td>
-                            <td>20/10/2021</td>
-                            <td><a href="#" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                                <a href="#" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                            <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                        </tr>
+                            @if($datas->isNotEmpty())
+                                @foreach ($datas as $item)
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->titre }}</td>
+                                    <td>{{ $item->date_debut }}</td>
+                                    <td>{{ $item->date_fin }}</td>
+                                    <td>
+                                        @if($item->active == 0)
+                                            <span><i class="ti-na h2 text-danger"></i></span>
+                                        @else
+                                            <span><i class="ti-check-box h2 text-success"></i></span>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{ route('sliders.show',$item->id) }}" title="voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a></td>
+                                    <td><a href="{{ route('sliders.edit',$item->id) }}" title="Modifier" class="btn btn-outline-warning waves-effect waves-light"><i class="ti-pencil-alt"></i></a></td>
+                                    <td><form method="post" action="{{ route('sliders.destroy', $item->id) }}"
+                                        onsubmit="return confirm('Etre vous sûre de vouloir Supprimer cet slide ?') ">
+                                          {{ csrf_field() }}{{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-outline-danger waves-effect waves-light" title="Supprimer"><i class="ti-trash"></i></button>
+                                        </form></td>
+                                </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <th colspan="8">Aucun slide enregistré pour le moment !!</th>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col --> <!-- end col -->
@@ -118,21 +98,21 @@
             <div class="card-body">
 
                 <h4 class="mt-0 header-title">Détails</h4>
+                <div style="width: 400px; text-align:center" class="text-center">
+                    <img src="{{ asset(''.$data->photo.'') }}" height="100px" width="400px" alt="" class="img-fluid">
+                </div>
                 <div class="user-details">
-                    <div class="text-center">
-                        <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle">
-                    </div>
                     <div class="user-info">
                             <h4 class="font-16"></h4>
                     </div>
                     <div class="user-info">
-                            <h4 class="font-16"> <span>Titre : </span> Elena@mail.com</h4>
+                            <h4 class="font-16"> <span>Titre : </span> {{ $data->titre }}</h4>
                     </div>
                     <div class="user-info">
-                            <h4 class="font-16"> <span>Afficher du : </span> 20/02/2021 au 20/10/2025</h4>
+                            <h4 class="font-16"> <span>Afficher du : </span> {{ $data->date_debut }} @if ($data->date_fin == '') @else au {{ $data->date_fin }} @endif </h4>
                     </div>
                     <div class="user-info">
-                            <h4 class="font-16"> <span>Publier : </span> Oui</h4>
+                            <h4 class="font-16"> <span>Publier : </span> @if ($data->active == 1) Oui @else Non @endif</h4>
                     </div>
                 </div>
 

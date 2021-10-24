@@ -17,8 +17,8 @@
                 <div class="hot_image">
                     <div class="background_image" style="background-image:url(images/hot.jpg)"></div>
                     <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-                        <div class="tag tag_house"><a href="#">house</a></div>
-                        <div class="tag tag_sale"><a href="#">for sale</a></div>
+                        <div class="tag tag_house"><a href="#">Maison</a></div>
+                        <div class="tag tag_sale"><a href="#">A vendre</a></div>
                     </div>
                 </div>
             </div>
@@ -27,11 +27,11 @@
             <div class="col-lg-6">
                 <div class="hot_content">
                     <div class="hot_deal">
-                        <div class="tag_price">$ 562 346</div>
-                        <div class="hot_title"><a href="#">Villa for sale</a></div>
+                        <div class="tag_price">35 000 000</div>
+                        <div class="hot_title"><a href="#">Villa A vendre</a></div>
                         <div class="prop_location d-flex flex-row align-items-start justify-content-start">
                             <img src="images/icon_1.png" alt="">
-                            <span>280 Doe Meadow Drive Landover, MD 20785</span>
+                            <span>Bervelihiste, Cocody 8 Tranche Abidjan Côte d'ivoire</span>
                         </div>
                         <div class="prop_text">
                             <p>Nulla aliquet bibendum sem, non placerat risus venenatis at. Prae sent vulputate bibendum dictum. Cras at vehicula urna. Suspendisse fringilla lobortis justo, ut tempor leo cursus in.</p>

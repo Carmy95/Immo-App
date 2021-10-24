@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/a', function () {
     // $menu = 'personnel';
     // return view('welcome',compact('menu'));
-    return view('admin.visiteurs.show');
+    return view('admin.errors.file');
 });
 
 Auth::routes();
@@ -45,6 +45,7 @@ Route::resource('etats', EtatController::class);
 Route::resource('sliders', SliderController::class);
 Route::resource('villes', VilleController::class);
 Route::resource('visiteurs', VisiteurController::class);
+Route::get('/errors',[HomeController::class, 'erreur'])->name('erreur');
 
 
 

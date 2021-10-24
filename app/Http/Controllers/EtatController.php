@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EtatRequest;
 use App\Models\Etat;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class EtatController extends Controller
      */
     public function index()
     {
-        return view('admin.etats.index');
+        $title = 'Nos Etats';
+        $data = Etat::paginate(5);
+        return view('admin.etats.index',compact('title','data'));
     }
 
     /**
@@ -24,7 +27,9 @@ class EtatController extends Controller
      */
     public function create()
     {
-        return view('admin.etats.create');
+        $title = 'Nos Etats';
+        $data = Etat::paginate(5);
+        return view('admin.etats.create',compact('title','data'));
     }
 
     /**
@@ -33,9 +38,12 @@ class EtatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EtatRequest $request)
     {
-        //
+        $data = new Etat();
+        $data->libelle = $request->input('etat');
+        $data->save();
+        return redirect()->route('etats.index');
     }
 
     /**
@@ -57,7 +65,10 @@ class EtatController extends Controller
      */
     public function edit(Etat $etat)
     {
-        return view('admin.etats.edit');
+        $title = 'Nos Etats';
+        $datas = Etat::paginate('5');
+        $data = Etat::findOrFail($etat->id);
+        return view('admin.etats.edit',compact('title','datas','data'));
     }
 
     /**
@@ -67,9 +78,13 @@ class EtatController extends Controller
      * @param  \App\Models\Etat  $etat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Etat $etat)
+    public function update(EtatRequest $request, Etat $etat)
     {
-        //
+        $data = Etat::findOrFail($etat->id);
+        $data->update([
+            'libelle' => $request->input('etat')
+        ]);
+        return redirect()->route('etats.index');
     }
 
     /**
@@ -80,6 +95,7 @@ class EtatController extends Controller
      */
     public function destroy(Etat $etat)
     {
-        //
+        Etat::destroy($etat->id);
+        return redirect()->route('etats.index');
     }
 }

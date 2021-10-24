@@ -53,61 +53,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>1</td>
-                        <td>10/02/2020</td>
-                        <td>20/10/2021</td>
-                        <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
-                            <a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>1</td>
-                        <td>10/02/2020</td>
-                        <td>20/10/2021</td>
-                        <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
-                            <a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>1</td>
-                        <td>10/02/2020</td>
-                        <td>20/10/2021</td>
-                        <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
-                            <a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>1</td>
-                        <td>10/02/2020</td>
-                        <td>20/10/2021</td>
-                        <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
-                            <a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>1</td>
-                        <td>10/02/2020</td>
-                        <td>20/10/2021</td>
-                        <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
-                            <a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if($datas->isNotEmpty())
+                            @foreach ($datas as $item)
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->titre }}</td>
+                                    <td>{{ $item->date_debut }}</td>
+                                    <td>{{ $item->date_fin }}</td>
+                                    <td><span title="voir" class="btn btn-outline-secondary"><i class="ti-eye"></i></span>
+                                        <a href="{{ route('sliders.edit',$item->id) }}" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="6">Aucun slide enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -119,28 +86,30 @@
 
                 <h4 class="mt-0 header-title">Formulaire de Modification</h4>
 
-                <form class="" action="#">
+                <form method="POST" action="{{ route('sliders.update', $data->id) }}" enctype="multipart/form-data">
+                    @csrf @method('PUT')
                     <div class="form-group">
                         <label>Titre</label>
-                        <input type="text" class="form-control" required placeholder="Titre"/>
+                        <input type="text" name="titre" value="{{ $data->titre }}" class="form-control" required placeholder="Titre"/>
                     </div>
                     <div class="form-group">
                         <label>Date Debut</label>
-                        <input type="date" class="form-control" required placeholder="Nom du rôle"/>
+                        <input type="date" name="date_debut" value="{{ $data->date_debut }}" class="form-control" required placeholder="Nom du rôle"/>
                     </div>
                     <div class="form-group">
                         <label>Date Fin</label>
-                        <input type="date" class="form-control" required placeholder="Nom du rôle"/>
+                        <input type="date" name="date_fin" value="{{ $data->date_fin }}" class="form-control" required placeholder="Nom du rôle"/>
                     </div>
                     <div class="form-group">
                         <label>Photo</label>
-                        <input type="file" class="form-control" required placeholder="Nom du rôle"/>
+                        <input type="file" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>Activer</label>
                         <div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1" data-parsley-multiple="groups"
+                                <input name="active" type="checkbox" @if($data->active != 0) checked @endif
+                                  class="custom-control-input" id="customCheck1" value="1" data-parsley-multiple="groups"
                                        data-parsley-mincheck="2">
                                 <label class="custom-control-label" for="customCheck1">Oui</label>
                             </div>

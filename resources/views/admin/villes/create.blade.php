@@ -47,41 +47,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if ($data->isNotEmpty())
+                            @foreach ($data as $item )
+                                <th scope="row">{{ $item->id }}</th>
+                                <td>{{ $item->libelle }}</td>
+                                <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="4">Aucne ville enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -93,10 +75,11 @@
 
                 <h4 class="mt-0 header-title">Formulaire d'Ajout</h4>
 
-                <form class="" action="#">
+                <form class="" action="{{ route('villes.store') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label>Intitulé de la ville</label>
-                        <input type="text" class="form-control" required placeholder="Nom de la ville"/>
+                        <input type="text" name="ville" value="{{ old('ville') }}" class="form-control" required placeholder="Nom de la ville"/>
                     </div>
                     <div class="form-group">
                         <div>

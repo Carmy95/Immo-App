@@ -46,60 +46,36 @@
                             <th>Nom</th>
                             <th>Prénoms</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>M. / Mme. / Mlle.</td>
-                        <td>Tata</td>
-                        <td>Toto Titi</td>
-                        <td>tata@mail.com</td>
-                        <td><a href="#" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
-                        <a href="#" title="Supprimer" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-trash"></i></a></td>
-                    </tr>
+                        @if ($datas->isNotEmpty())
+                            @foreach ($datas as $item )
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>@if ($item->sexe == 'H') M. @else Mme. / Mlle. @endif</td>
+                                    <td>{{ $item->nom }}</td>
+                                    <td>{{ $item->prenoms }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td><a href="{{ route('visiteurs.show',$item->id) }}" title="Voir" class="btn btn-outline-success waves-effect waves-light"><i class="ti-eye"></i></a>
+                                    <td><form method="post" action="{{ route('visiteurs.destroy', $item->id) }}"
+                                        onsubmit="return confirm('Etre vous sûre de vouloir Supprimer cet visiteur ?') ">
+                                          {{ csrf_field() }}{{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-outline-danger waves-effect waves-light" title="Supprimer"><i class="ti-trash"></i></button>
+                                        </form></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="7">Aucn visiteur enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col --> <!-- end col -->
@@ -112,13 +88,17 @@
                 <h4 class="mt-0 header-title">Fiche d'Identification</h4>
                 <div class="user-details">
                     <div class="text-center">
-                        <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle">
+                        @if ($data->sexe == 'H')
+                            <img src= "{{ asset('assets/images/users/men.png') }}" alt="" class="rounded-circle">
+                        @else
+                            <img src="{{ asset('assets/images/users/women.jpg') }}" alt="" class="rounded-circle">
+                        @endif
                     </div>
                     <div class="user-info">
-                            <h4 class="font-16"> <span>M./Mme./Mlle. </span> Elena Retson</h4>
+                            <h4 class="font-16"><span>@if ($data->sexe == 'H') M. @else Mme. / Mlle. @endif </span> {{ Strtoupper($data->nom).' '. $data->prenoms }}</h4>
                     </div>
                     <div class="user-info">
-                            <h4 class="font-16"> <span>Adresse Email : </span> Elena@mail.com</h4>
+                            <h4 class="font-16"> <span>Adresse Email : </span> {{ $data->email }}</h4>
                     </div>
                 </div>
 

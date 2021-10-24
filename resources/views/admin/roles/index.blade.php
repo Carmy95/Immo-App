@@ -69,7 +69,7 @@
                 </table>
             </div>
             <div class="card-footer">
-                <h4>{{ $data->links() }}</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->

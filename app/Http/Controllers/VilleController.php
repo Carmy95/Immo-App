@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VilleRequest;
 use App\Models\Ville;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class VilleController extends Controller
      */
     public function index()
     {
-        return view('admin.villes.index');
+        $title = 'Nos Villes';
+        $data = Ville::paginate('5');
+        return view('admin.villes.index',compact('title','data'));
     }
 
     /**
@@ -24,7 +27,9 @@ class VilleController extends Controller
      */
     public function create()
     {
-        return view('admin.villes.create');
+        $title = 'Nos Villes';
+        $data = Ville::paginate('5');
+        return view('admin.villes.create',compact('title','data'));
     }
 
     /**
@@ -33,9 +38,12 @@ class VilleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VilleRequest $request)
     {
-        //
+        $data = new Ville();
+        $data->libelle = $request->input('ville');
+        $data->save();
+        return redirect()->route('villes.index');
     }
 
     /**
@@ -57,7 +65,10 @@ class VilleController extends Controller
      */
     public function edit(Ville $ville)
     {
-        return view('admin.villes.edit');
+        $title = 'Nos Villes';
+        $datas = Ville::paginate('5');
+        $data = Ville::findOrFail($ville->id);
+        return view('admin.villes.edit',compact('title','datas','data'));
     }
 
     /**
@@ -67,9 +78,13 @@ class VilleController extends Controller
      * @param  \App\Models\Ville  $ville
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ville $ville)
+    public function update(VilleRequest $request, Ville $ville)
     {
-        //
+        $data = Ville::findOrFail($ville->id);
+        $data->update([
+            'libelle' => $request->input('ville')
+        ]);
+        return redirect()->route('villes.index');
     }
 
     /**
@@ -80,6 +95,7 @@ class VilleController extends Controller
      */
     public function destroy(Ville $ville)
     {
-        //
+        Ville::destroy($ville->id);
+        return redirect()->route('villes.index');
     }
 }

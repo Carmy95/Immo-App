@@ -13,7 +13,7 @@ class VilleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class VilleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ville' => 'required | min:2'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'ville.required' => 'Veuillez entrer le nom de la ville svp !',
+            'ville.min' => 'Le nom de la ville doit contenir au moins :min caractères !'
         ];
     }
 }
