@@ -182,7 +182,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre de Chambre</label>
-                                    <input type="number" name="chambre" value="{{ old('chambre') }}" class="form-control @error('prix') is-invalid @enderror" required />
+                                    <input type="number" name="chambre" value="{{ old('chambre') }}" class="form-control @error('prix') is-invalid @enderror"/>
                                     @error('chambre')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -206,7 +206,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre de toillet</label>
-                                    <input type="number" name="wc" value="{{ old('wc') }}" class="form-control @error('wc') is-invalid @enderror" required />
+                                    <input type="number" name="wc" value="{{ old('wc') }}" class="form-control @error('wc') is-invalid @enderror" />
                                     @error('wc')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -217,7 +217,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre de cuisine</label>
-                                    <input type="number" name="cuisine" value="{{ old('cuisine') }}" class="form-control @error('cuisine') is-invalid @enderror" required />
+                                    <input type="number" name="cuisine" value="{{ old('cuisine') }}" class="form-control @error('cuisine') is-invalid @enderror" />
                                     @error('cuisine')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -230,7 +230,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre de salle à manger</label>
-                                    <input type="number" name="manger" value="{{ old('manger') }}" class="form-control @error('manger') is-invalid @enderror" required />
+                                    <input type="number" name="manger" value="{{ old('manger') }}" class="form-control @error('manger') is-invalid @enderror"  />
                                     @error('manger')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -241,7 +241,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre de garage</label>
-                                    <input type="number" name="garage" value="{{ old('garage') }}" class="form-control @error('garage') is-invalid @enderror" required />
+                                    <input type="number" name="garage" value="{{ old('garage') }}" class="form-control @error('garage') is-invalid @enderror" />
                                     @error('garage')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -252,7 +252,7 @@
                         </div>
                     <div class="form-group">
                         <label>Photo</label>
-                        <input type="file" name="photo" value="{{ old('photo') }}" class="form-control @error('photo') is-invalid @enderror" required />
+                        <input type="file" name="photo" value="{{ old('photo') }}" class="form-control @error('photo') is-invalid @enderror" />
                         @error('photo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

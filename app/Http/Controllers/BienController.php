@@ -88,7 +88,6 @@ class BienController extends Controller
             $photo = 'assets/images/bg-1.png';
         }
         $data->photo = $photo;
-        // dd($data);
         $data->save();
         return redirect()->route('biens.index');
     }
