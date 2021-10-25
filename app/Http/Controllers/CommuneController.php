@@ -100,6 +100,7 @@ class CommuneController extends Controller
      */
     public function destroy(Commune $commune)
     {
-        //
+        Commune::destroy($commune->id);
+        return redirect()->route('communes.index');
     }
 }

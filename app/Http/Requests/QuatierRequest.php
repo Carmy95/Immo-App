@@ -13,7 +13,7 @@ class QuatierRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class QuatierRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'commune' => 'required',
+            'quatier' => 'required | min:3'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'commune.required' => 'Veillez sélectionnez une commune SVP!!',
+            'quatier.required' => 'Le nom du quatier est obligatoire SVP!!',
+            'quatier.min' => 'Le nom du quatier doit comporter au moins :min caractères.'
         ];
     }
 }

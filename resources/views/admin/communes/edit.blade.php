@@ -94,11 +94,21 @@
                                     <option>Aucune ville enregistrée pour le moment !</option>
                                 @endif
                             </select>
+                            @error('ville')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Nom de la Commune</label>
                         <input type="text" class="form-control @error('commune') is-invalid @enderror " name="commune"  value="{{ $data->libelle }}" required placeholder="Nom de la commune"/>
+                        @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <div>

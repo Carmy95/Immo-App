@@ -42,58 +42,34 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Villes</th>
-                            <th>Communes</th>
                             <th>Quartiers</th>
+                            <th>Communes</th>
+                            <th>Villes</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if($data->isNotEmpty())
+                            @foreach ($data as $item)
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->libelle }}</td>
+                                    <td>{{ $item->commune->libelle }}</td>
+                                    <td>{{ $item->commune->ville->libelle }}</td>
+                                    <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="5">Aucun Quatier enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $data->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -105,20 +81,36 @@
 
                 <h4 class="mt-0 header-title">Formulaire d'Ajout</h4>
 
-                <form class="" action="#">
+                <form class="" method="POST" action="{{ route('quatiers.store') }}">
+                    @csrf
                     <div class="form-group">
                         <label>Commune</label>
                         <div class="col-sm-10">
-                            <select class="form-control">
-                                <option>Selectionner la commune</option>
-                                <option>Large select</option>
-                                <option>Small select</option>
+                            <select name="commune" class="form-control @error('commune') is-invalid @enderror">
+                                @if ($commune->isNotEmpty())
+                                    <option>Selectionner la Commune</option>
+                                    @foreach ($commune as $item)
+                                        <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Aucun quatier enregistrée pour le moment !</option>
+                                @endif
                             </select>
+                            @error('commune')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Intitulé du Quartier</label>
-                        <input type="text" class="form-control" required placeholder="Nom du quartier"/>
+                        <label>Intitulé du Quatier</label>
+                        <input type="text" name="quatier" class="form-control @error('quatier') is-invalid @enderror" required placeholder="Nom du quartier"/>
+                        @error('quatier')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <div>

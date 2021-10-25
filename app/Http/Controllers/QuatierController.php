@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuatierRequest;
+use App\Models\Commune;
 use App\Models\Quatier;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,9 @@ class QuatierController extends Controller
      */
     public function index()
     {
-        return view('admin.quarties.index');
+        $title = 'Nos Quatires';
+        $data = Quatier::paginate('5');
+        return view('admin.quarties.index', compact('title','data'));
     }
 
     /**
@@ -24,7 +28,10 @@ class QuatierController extends Controller
      */
     public function create()
     {
-        return view('admin.quarties.create');
+        $title = 'Nos Quatires';
+        $data = Quatier::paginate(5);
+        $commune = Commune::all();
+        return view('admin.quarties.create', compact('title','data','commune'));
     }
 
     /**
@@ -33,9 +40,13 @@ class QuatierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuatierRequest $request)
     {
-        //
+        $data = new Quatier();
+        $data->libelle = $request->input('quatier');
+        $data->commune_id = $request->input('commune');
+        $data->save();
+        return redirect()->route('quatiers.index');
     }
 
     /**
@@ -57,7 +68,11 @@ class QuatierController extends Controller
      */
     public function edit(Quatier $quatier)
     {
-        return view('admin.quarties.edit');
+        $title = 'Communes';
+        $datas = Quatier::paginate(5);
+        $data = Quatier::findOrFail($quatier->id);
+        $commune = Commune::all();
+        return view('admin.quarties.edit', compact('title','datas','data','commune'));
     }
 
     /**
@@ -69,7 +84,12 @@ class QuatierController extends Controller
      */
     public function update(Request $request, Quatier $quatier)
     {
-        //
+        $data = Quatier::findOrFail($quatier->id);
+        $data->update([
+            'quatier_id' => $request->input('commune'),
+            'libelle' => $request->input('quatier')
+        ]);
+        return redirect()->route('quatier.index');
     }
 
     /**
@@ -80,6 +100,7 @@ class QuatierController extends Controller
      */
     public function destroy(Quatier $quatier)
     {
-        //
+        Quatier::destroy($quatier->id);
+        return redirect()->route('quatiers.index');
     }
 }

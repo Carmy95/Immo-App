@@ -34,7 +34,7 @@ class CommuneRequest extends FormRequest
         return [
             'ville.required' => 'Veillez sélectionnez une ville SVP!!',
             'commune.required' => 'Le nom de la commune est obligatoire SVP!!',
-            'commune.min' => 'Le nom de la commune doit comporter au moin :min caractères.'
+            'commune.min' => 'Le nom de la commune doit comporter au moins :min caractères.'
         ];
     }
 }

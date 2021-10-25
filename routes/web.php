@@ -4,6 +4,7 @@ use App\Http\Controllers\BienController;
 use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\EtatController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuatierController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\VilleController;
@@ -45,6 +46,7 @@ Route::resource('etats', EtatController::class);
 Route::resource('sliders', SliderController::class);
 Route::resource('villes', VilleController::class);
 Route::resource('visiteurs', VisiteurController::class);
+Route::resource('quatiers', QuatierController::class);
 Route::get('/errors',[HomeController::class, 'erreur'])->name('erreur');
 
 

@@ -42,58 +42,34 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Villes</th>
-                            <th>Communes</th>
                             <th>Quartiers</th>
+                            <th>Communes</th>
+                            <th>Villes</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><a href="#" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
-                        <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
-                    </tr>
+                        @if ($datas->isNotEmpty())
+                            @foreach ($datas as $item)
+                                <tr>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->libelle }}</td>
+                                    <td>{{ $item->commune->libelle }}</td>
+                                    <td>{{ $item->commune->ville->libelle }}</td>
+                                    <td><a href="{{ route('quatiers.edit',$item->id) }}" title="Modifier" class="btn btn-outline-danger waves-effect waves-light"><i class="ti-pencil-alt"></i></a>
+                                    <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <th colspan="5">Aucun Quatier enregistré pour le moment !!</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <h4>pagination</h4>
+                <h4>{{ $datas->links('vendor.pagination.bootstrap-4') }}</h4>
             </div>
         </div>
     </div> <!-- end col -->
@@ -105,20 +81,36 @@
 
                 <h4 class="mt-0 header-title">Formulaire de Modification</h4>
 
-                <form class="" action="#">
+                <form action="{{ route('quatiers.update',$data->id) }}" method="POST">
+                    @csrf @method('PUT')
                     <div class="form-group">
                         <label>Commune</label>
                         <div class="col-sm-10">
-                            <select class="form-control">
-                                <option>Selectionner la commune</option>
-                                <option>Large select</option>
-                                <option>Small select</option>
+                            <select name="commune" class="form-control @error('commune') is-invalid @enderror">
+                                @if ($commune->isNotEmpty())
+                                    <option>Selectionner la commune</option>
+                                    @foreach ($commune as $item)
+                                        <option @if ($data->commune_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Aucun quatier enregistré pour le moment !</option>
+                                @endif
                             </select>
+                            @error('commune')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Nom du Quartier</label>
-                        <input type="text" class="form-control" required placeholder="Nom du quartier"/>
+                        <input type="text" name="quatier" value="{{ $data->libelle }}" class="form-control @error('quatier') is-invalid @enderror" required placeholder="Nom du quartier"/>
+                        @error('quatier')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <div>
