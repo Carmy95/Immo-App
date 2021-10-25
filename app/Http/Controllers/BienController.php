@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BienRequest;
 use App\Models\Bien;
+use App\Models\Etat;
+use App\Models\Quatier;
 use Illuminate\Http\Request;
 
 class BienController extends Controller
@@ -14,7 +17,9 @@ class BienController extends Controller
      */
     public function index()
     {
-        return view('admin.biens.index');
+        $title = 'Nos Biens';
+        $data = Bien::paginate('5');
+        return view('admin.biens.index', compact('title','data'));
     }
 
     /**
@@ -24,7 +29,11 @@ class BienController extends Controller
      */
     public function create()
     {
-        return view('admin.biens.create');
+        $quatier = Quatier::all();
+        $title = 'Nos Biens';
+        $etat = Etat::all();
+        $data = Bien::paginate('5');
+        return view('admin.biens.create', compact('title','data','quatier','etat'));
     }
 
     /**
@@ -33,9 +42,55 @@ class BienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BienRequest $request)
     {
-        //
+        $data = new Bien();
+        $data->description =$request->input('description');
+        $data->quatier_id =$request->input('quatier');
+        $data->etat_id =$request->input('etat');
+        $data->libelle =$request->input('titre');
+        if ($request->input('chambre') > 0 ) {
+            $data->chambre = $request->input('chambre');
+        }
+        if ($request->input('garage') > 0) {
+            $data->garage = $request->input('garage');
+        }
+        if ($request->input('manger') > 0) {
+            $data->salle_manger = $request->input('manger');
+        }
+        if ($request->input('sejour') > 0) {
+            $data->sejour = $request->input('sejour');
+        }
+        if ($request->input('cuisine') > 0) {
+            $data->cuisine =$request->input('cuisine');
+        }
+        if ($request->input('wc') > 0) {
+            $data->wc = $request->input('wc');
+        }
+        if ($request->input('prix') > 0 ) {
+            $data->prix = $request->input('prix');
+        }
+        if ($request->input('superficie') > 0 ) {
+            $data->superficie = $request->input('superficie');
+        }
+        if ($request->hasfile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $images =['jpg','jpeg','png'];
+            if (in_array($extension,$images)) {
+                $files = $file->store('Biens', 'public');
+                $photo = 'storage/'.$files;
+            }else {
+                session()->flash('photo', 'L\'extenxion de votre photo n\'est pas un .png ou .jpg ou .jpeg');
+                return redirect()->route('erreur');
+            }
+        }else {
+            $photo = 'assets/images/bg-1.png';
+        }
+        $data->photo = $photo;
+        // dd($data);
+        $data->save();
+        return redirect()->route('biens.index');
     }
 
     /**

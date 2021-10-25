@@ -30,6 +30,7 @@ class CreateBiensTable extends Migration
             $table->foreign('quatier_id')->references('id')->on('quatiers');
             $table->unsignedBigInteger('etat_id');
             $table->foreign('etat_id')->references('id')->on('etats');
+            $table->string('photo');
             $table->timestamps();
         });
     }
