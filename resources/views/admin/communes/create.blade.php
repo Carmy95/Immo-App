@@ -51,9 +51,9 @@
                         @if($data->isNotEmpty())
                             @foreach ($data as $item)
                                 <tr>
-                                    <th scope="row">{{ $data->id }}</th>
-                                    <td>{{ $data->libelle }}</td>
-                                    <td>{{ $data->ville->libelle }}</td>
+                                    <th scope="row">{{ $item->id }}</th>
+                                    <td>{{ $item->libelle }}</td>
+                                    <td>{{ $item->ville->libelle }}</td>
                                     <td><span title="Modifier" class="btn btn-outline-secondary"><i class="ti-pencil-alt"></i></span>
                                     <span title="Supprimer" class="btn btn-outline-secondary"><i class="ti-trash"></i></span></td>
                                 </tr>
