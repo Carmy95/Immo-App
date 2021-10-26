@@ -100,7 +100,10 @@ class BienController extends Controller
      */
     public function show(Bien $bien)
     {
-        return view('admin.biens.show');
+        $title = 'Nos Biens';
+        $datas = Bien::paginate('5');
+        $data = Bien::findOrFail($bien->id);
+        return view('admin.biens.show', compact('title','data','datas'));
     }
 
     /**
@@ -126,9 +129,65 @@ class BienController extends Controller
      * @param  \App\Models\Bien  $bien
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bien $bien)
+    public function update(BienRequest $request, Bien $bien)
     {
-        //
+        $chambre = $garage = $sejour = $cuisine = null;
+        $wc = $prix = $superficie = $salle_manger = null;
+        $data = Bien::findOrfail($bien->id);
+        if ($request->input('chambre') > 0 ) {
+            $chambre = $request->input('chambre');
+        }
+        if ($request->input('garage') > 0) {
+            $garage = $request->input('garage');
+        }
+        if ($request->input('manger') > 0) {
+            $salle_manger = $request->input('manger');
+        }
+        if ($request->input('sejour') > 0) {
+            $sejour = $request->input('sejour');
+        }
+        if ($request->input('cuisine') > 0) {
+            $cuisine =$request->input('cuisine');
+        }
+        if ($request->input('wc') > 0) {
+            $wc = $request->input('wc');
+        }
+        if ($request->input('prix') > 0 ) {
+            $prix = $request->input('prix');
+        }
+        if ($request->input('superficie') > 0 ) {
+            $superficie = $request->input('superficie');
+        }
+        if ($request->hasfile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $images =['jpg','jpeg','png'];
+            if (in_array($extension,$images)) {
+                $files = $file->store('Biens', 'public');
+                $photo = 'storage/'.$files;
+            }else {
+                session()->flash('photo', 'L\'extenxion de votre photo n\'est pas un .png ou .jpg ou .jpeg');
+                return redirect()->route('erreur');
+            }
+        }else {
+            $photo = $data->photo;
+        }
+        $data->update([
+            'description' => $request->input('description'),
+            'quatier_id' => $request->input('quatier'),
+            'etat_id' => $request->input('etat'),
+            'libelle' => $request->input('titre'),
+            'chambre' => $chambre,
+            'garage' => $garage,
+            'salle_manger' => $salle_manger,
+            'sejour' => $sejour,
+            'prix' => $prix,
+            'superficie' => $superficie,
+            'wc' => $wc,
+            'cuisine' => $cuisine,
+            'photo' => $photo
+    ]);
+        return redirect()->route('biens.index');
     }
 
     /**
@@ -139,6 +198,7 @@ class BienController extends Controller
      */
     public function destroy(Bien $bien)
     {
-        //
+        Bien::destroy($bien->id);
+        return redirect()->route('biens.index');
     }
 }

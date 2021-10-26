@@ -27,7 +27,7 @@
 
                 <h4 class="mt-0 header-title">Nos Sliders (Affiches Publicitaires)</h4>
                 <div class="row">
-                    <div class="col-md-4"><a href="#" class="btn btn-outline-primary waves-effect waves-light"><i class="ti-plus"></i> Ajouter</a></div>
+                    <div class="col-md-4"><a href="{{ route('sliders.create') }}" class="btn btn-outline-primary waves-effect waves-light"><i class="ti-plus"></i> Ajouter</a></div>
                     <div class="col-md-8">
                         <form action="#">
                             <div class="row">

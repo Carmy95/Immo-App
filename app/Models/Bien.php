@@ -11,7 +11,7 @@ class Bien extends Model
 
     protected $guarded = ['id'];
 
-    public function quartier()
+    public function quatier()
     {
         return $this->BelongsTo(Quatier::class);
     }
