@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bien;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $active = 'home';
-        return view('site.home',compact('active'));
+        $sliders = Slider::where('active',1);
+        $biens = Bien::paginate(6);
+        return view('site.home',compact('active','sliders','biens'));
     }
     public function about()
     {
@@ -34,12 +38,15 @@ class HomeController extends Controller
     public function bien()
     {
         $active = 'bien';
-        return view('site.bien',compact('active'));
+        $biens = Bien::paginate(15);
+        return view('site.bien',compact('active','biens'));
     }
-    public function detail()
+    public function detail(Bien $bien)
     {
         $active = 'bien';
-        return view('site.bien_show',compact('active'));
+        $data = Bien::findOrFail($bien->id);
+        dd($data);
+        return view('site.bien_show',compact('active','data'));
     }
     public function contact()
     {

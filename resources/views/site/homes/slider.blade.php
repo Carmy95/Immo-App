@@ -5,55 +5,24 @@
          <div class="owl-carousel owl-theme home_slider">
 
              <!-- Slide -->
-             <div class="slide">
-                 <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                 <div class="home_container">
-                     <div class="container">
-                         <div class="row">
-                             <div class="col">
-                                 <div class="home_content">
-                                     <div class="home_title"><h1>Cocody 8 Tranche, Abidjan, Côte d'Ivoire</h1></div>
-                                     <div class="tag home_price_tag">25 000 000 Fcfa</div><a href="#"><div class="tag tag_price">Details</div></a>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+             @foreach ($sliders as $item)
+                <div class="slide">
+                    <div class="background_image" style="background-image:url({{ $item->photo }})"></div>
+                    <div class="home_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_content">
+                                        <div class="home_title"><h1>{{ $item->titre }}</h1></div>
+                                        <a href="{{ route('bien') }}"><div class="tag tag_price">Details</div></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             @endforeach
 
-             <!-- Slide -->
-             <div class="slide">
-                 <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                 <div class="home_container">
-                     <div class="container">
-                         <div class="row">
-                             <div class="col">
-                                 <div class="home_content">
-                                     <div class="home_title"><h1>2 Plateau Vallon</h1></div>
-                                     <div class="tag home_price_tag">250 000 fCFA /mois</div><a href="#"><div class="tag tag_price">Details</div></a>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-             <!-- Slide -->
-             <div class="slide">
-                 <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                 <div class="home_container">
-                     <div class="container">
-                         <div class="row">
-                             <div class="col">
-                                 <div class="home_content">
-                                     <div class="home_title"><h1>1243 Main Avenue Left Town</h1></div>
-                                     <div class="tag home_price_tag">$ 482 900 </div> <a href="#"><div class="tag tag_price">Details</div></a>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
 
          </div>
 

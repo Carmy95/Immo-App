@@ -74,386 +74,62 @@
 					<div class="listings_container">
 
 						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_1.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 217 346</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>2500 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_2.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_rent"><a href="listings.html">for rent</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 515 957</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">4812 Haul Road Saint Paul, MN 55102</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>1234 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_3.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 375 255</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">4067 Wolf Pen Road Mountain View, CA 94041</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>2000 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_4.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_rent"><a href="listings.html">for rent</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 122 350</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>1750 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_5.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_rent"><a href="listings.html">for rent</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 59 251</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>750 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_6.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 715 114</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>2780 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_7.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 325 520</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>1325 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_8.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_sale"><a href="listings.html">for sale</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 154 487</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>950 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Listing -->
-						<div class="listing_box house sale">
-							<div class="listing">
-								<div class="listing_image">
-									<div class="listing_image_container">
-										<img src="images/listing_9.jpg" alt="">
-									</div>
-									<div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div class="tag tag_house"><a href="listings.html">house</a></div>
-										<div class="tag tag_rent"><a href="listings.html">for rent</a></div>
-									</div>
-									<div class="tag_price listing_price">$ 95 085</div>
-								</div>
-								<div class="listing_content">
-									<div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
-										<a href="single.html">280 Doe Meadow Drive Landover, MD 20785</a>
-									</div>
-									<div class="listing_info">
-										<ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<li class="property_area d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_2.png" alt="">
-												<span>690 sq ft</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_3.png" alt="">
-												<span>2</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_4.png" alt="">
-												<span>5</span>
-											</li>
-											<li class="d-flex flex-row align-items-center justify-content-start">
-												<img src="images/icon_5.png" alt="">
-												<span>2</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+                        @foreach($biens as $item)
+                            <div class="listing_box house sale">
+                                <div class="listing">
+                                    <div class="listing_image">
+                                        <div class="listing_image_container">
+                                            <img src="{{ asset(''.$item->photo.'') }}" alt="">
+                                        </div>
+                                        <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                            <div class="tag tag_house"><a href="{{ route('detail',$item->id) }}">{{ $item->libelle }}</a></div>
+                                            <div class="tag tag_sale"><a href="{{ route('detail',$item->id) }}">{{ $item->etat->libelle }}</a></div>
+                                        </div>
+                                        <div class="tag_price listing_price">{{ $item->prix }} Fcfa
+                                            @if($item->echance == 'M')
+                                                / Mois
+                                            @elseif($item->echance == 'S')
+                                                / Semaine
+                                            @elseif($item->echance == 'J')
+                                                / Jour
+                                            @elseif($item->echance == 'A')
+                                                / An
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="listing_content">
+                                        <div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
+                                            <img src="images/icon_1.png" alt="">
+                                            <a href="{{ route('detail',$item->id) }}">{{ $item->quatier->libelle }}, {{ $item->quatier->commune->libelle }}</a>
+                                        </div>
+                                        <div class="listing_info">
+                                            <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                <li class="property_area d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="images/icon_2.png" alt="">
+                                                    <span>{{ $item->superficie }} m2</span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="images/icon_3.png" alt="">
+                                                    <span>@if ($item->wc == '') 0 @else {{ $item->wc }} @endif</span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="images/icon_4.png" alt="">
+                                                    <span>@if ($item->chambre == '') 0 @else {{ $item->chambre }} @endif</span>
+                                                </li>
+                                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                                    <img src="images/icon_5.png" alt="">
+                                                    <span>@if ($item->garage == '') 0 @else {{ $item->garage }} @endif</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 
 					</div>
 					<div class="load_more">
-						<div class="button ml-auto mr-auto"><a href="#">load more</a></div>
+						<div class="ml-auto mr-auto">{{ $biens->links('vendor.pagination.bootstrap-4') }}</div>
 					</div>
 				</div>
 			</div>
