@@ -10,7 +10,7 @@
 	<!-- Home -->
 
 	<div class="home">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/listings.jpg" data-speed="0.8"></div>
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('images/listings.jpg') }}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -41,7 +41,7 @@
 							<input type="radio" id="tab_1" name="listing_tabs" checked>
 							<label for="tab_1"></label>
 							<div class="tab_content d-flex flex-xl-row flex-column align-datas-center justify-content-center">
-								<div class="tab_icon"><img src="images/house.svg" class="svg" alt=""></div>
+								<div class="tab_icon"><img src="{{ asset('images/house.svg') }}" class="svg" alt=""></div>
 								<span>open house</span>
 							</div>
 						</div>
@@ -49,7 +49,7 @@
 							<input type="radio" id="tab_3" name="listing_tabs">
 							<label for="tab_3"></label>
 							<div class="tab_content d-flex flex-xl-row flex-column align-datas-center justify-content-center">
-								<div class="tab_icon"><img src="images/house2.svg" class="svg" alt=""></div>
+								<div class="tab_icon"><img src="{{ asset('images/house2.svg') }}" class="svg" alt=""></div>
 								<span>photos</span>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 							<input type="radio" id="tab_4" name="listing_tabs">
 							<label for="tab_4"></label>
 							<div class="tab_content d-flex flex-xl-row flex-column align-datas-center justify-content-center">
-								<div class="tab_icon"><img src="images/camera.svg" class="svg" alt=""></div>
+								<div class="tab_icon"><img src="{{ asset('images/camera.svg') }}" class="svg" alt=""></div>
 								<span>video</span>
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 							<input type="radio" id="tab_7" name="listing_tabs">
 							<label for="tab_7"></label>
 							<div class="tab_content d-flex flex-xl-row flex-column align-datas-center justify-content-center">
-								<div class="tab_icon"><img src="images/contract.svg" class="svg" alt=""></div>
+								<div class="tab_icon"><img src="{{ asset('images/contract.svg') }}" class="svg" alt=""></div>
 								<span>contact</span>
 							</div>
 						</div>
@@ -94,7 +94,7 @@
                                 </div>
 									<div class="listing_name"><h1>{{ $data->libelle }}</h1></div>
 									<div class="listing_location d-flex flex-row align-datas-start justify-content-start">
-										<img src="images/icon_1.png" alt="">
+										<img src="{{ asset('images/icon_1.png') }}" alt="">
 										<span>{{ $data->quatier->libelle }}, {{ $data->quatier->commune->libelle }}, {{ $data->quatier->commune->ville->libelle }}</span>
 									</div>
 									<div class="listing_list">
@@ -110,30 +110,30 @@
 									<div class="prop_info">
 										<ul class="d-flex flex-row align-datas-center justify-content-start flex-wrap">
 											<li class="d-flex flex-row align-datas-center justify-content-start">
-												<img src="images/icon_2_large.png" alt="">
+												<img src="{{ asset('images/icon_2_large.png') }}" alt="">
 												<div>
 													<div>{{ $data->superficie }}</div>
 													<div>m2</div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-datas-center justify-content-start">
-												<img src="images/icon_3_large.png" alt="">
+												<img src="{{ asset('images/icon_3_large.png') }}" alt="">
 												<div>
-													<div>@if ($item->wc == '') 0 @else {{ $item->wc }} @endif</div>
+													<div>@if ($data->wc == '') 0 @else {{ $data->wc }} @endif</div>
 													<div>Toillets</div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-datas-center justify-content-start">
-												<img src="images/icon_4_large.png" alt="">
+												<img src="{{ asset('images/icon_4_large.png') }}" alt="">
 												<div>
-													<div>@if ($item->chambre == '') 0 @else {{ $item->chambre }} @endif</div>
+													<div>@if ($data->chambre == '') 0 @else {{ $data->chambre }} @endif</div>
 													<div>Chambres</div>
 												</div>
 											</li>
 											<li class="d-flex flex-row align-datas-center justify-content-start">
-												<img src="images/icon_5_large.png" alt="">
+												<img src="{{ asset('images/icon_5_large.png') }}" alt="">
 												<div>
-													<div>@if ($item->garage == '') 0 @else {{ $item->garage }} @endif</div>
+													<div>@if ($data->garage == '') 0 @else {{ $data->garage }} @endif</div>
 													<div>Garages</div>
 												</div>
 											</li>
@@ -197,8 +197,8 @@
 									<div class="listing_title"><h3>Gallery Photo</h3></div>
 									<div class="video_container d-flex flex-column align-datas-center justify-content-center">
                                         ​<picture>
-                                            <source srcset="images/video.jpg" type="image/svg+xml">
-                                            <img src="images/video.jpg" class="img-fluid img-thumbnail" alt="...">
+                                            <source srcset="{{ asset('images/video.jpg') }}" type="image/svg+xml">
+                                            <img src="{{ asset('images/video.jpg') }}" class="img-fluid img-thumbnail" alt="...">
                                           </picture>
 										{{-- <img src="images/video.jpg" alt="">
 										<div class="video_button"><a class="youtube" href="https://www.youtube.com/embed/IV3ueyrp5M4?autoplay=1"><i class="fa fa-play" aria-hidden="true"></i></a></div> --}}

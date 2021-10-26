@@ -41,11 +41,10 @@ class HomeController extends Controller
         $biens = Bien::paginate(15);
         return view('site.bien',compact('active','biens'));
     }
-    public function detail(Bien $bien)
+    public function detail($id)
     {
         $active = 'bien';
-        $data = Bien::findOrFail($bien->id);
-        dd($data);
+        $data = Bien::findOrFail($id);
         return view('site.bien_show',compact('active','data'));
     }
     public function contact()
