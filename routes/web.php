@@ -37,7 +37,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/bien', [HomeController::class, 'bien'])->name('bien');
 Route::get('/detail', [HomeController::class, 'detail'])->name('detail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/gestion_du_personnel', [HomeController::class, 'home_presonnel'])->name('personnel.home')->middleware('auth');
+Route::get('/gestion_du_personnel', [HomeController::class, 'home_presonnel'])->name('personnel.home');
 
 Route::resource('roles', RoleController::class);
 Route::resource('biens', BienController::class);

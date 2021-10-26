@@ -7,9 +7,9 @@
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="mdi mdi-email-outline noti-icon"></i>
-                    <span class="badge badge-danger noti-icon-badge">5</span>
+                    <span class="badge badge-danger noti-icon-badge"></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                {{-- <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
                         <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
@@ -38,7 +38,7 @@
                             View All
                         </a>
 
-                </div>
+                </div> --}}
             </li>
 
             {{-- <li class="list-inline-item dropdown notification-list">
@@ -80,7 +80,7 @@
 
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="assets/images/users/user-5.jpg" alt="user" class="rounded-circle">
+                    <img src="{{ asset('assets/images/users/men.png') }}" alt="user" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
@@ -98,7 +98,7 @@
                 </button>
             </li>
             <li class="hide-phone list-inline-item app-search">
-                <h3 class="page-title">Titre de la Page</h3>
+                <h3 class="page-title">{{ $title }}</h3>
             </li>
         </ul>
 

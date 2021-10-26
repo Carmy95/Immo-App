@@ -51,27 +51,27 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h4 class="m-t-20 m-b-30">Gestion des Personnel</h4>
+            {{-- <h4 class="m-t-20 m-b-30">Localisation</h4> --}}
             <div class="card-deck-wrapper">
                 <div class="card-deck">
                     <div class="card m-b-30">
-                        <a href="#" class="waves-effect" style="color : black;">
+                        <a href="{{ route('villes.index') }}" class="waves-effect" style="color : black;">
                             <div class="card-body">
                                 <div class="row" style="padding:50px 0px 50px 0px">
                                     <div class="col-md-3" style="text-align: center">
                                         <h4 class="card-title font-20 mt-0"><i style="font-size: 50px;" class="ti-plus"></i></h4></div>
-                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Ajouter</h4></div>
+                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Nos Villes</h4></div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="card m-b-30">
-                        <a href="#" class="waves-effect" style="color : black;">
+                        <a href="{{ route('communes.index') }}" class="waves-effect" style="color : black;">
                             <div class="card-body">
                                 <div class="row" style="padding:50px 0px 50px 0px">
                                     <div class="col-md-3" style="text-align: center">
                                         <h4 class="card-title font-20 mt-0"><i style="font-size: 50px;" class="ti-layout-list-thumb"></i></h4></div>
-                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Liste</h4></div>
+                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Nos Communes</h4></div>
                                 </div>
                             </div>
                         </a>
@@ -82,27 +82,27 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h4 class="m-t-20 m-b-30">Gestion des Rôles</h4>
+            <h4 class="m-t-20 m-b-30"></h4>
             <div class="card-deck-wrapper">
                 <div class="card-deck">
                     <div class="card m-b-30">
-                        <a href="#" class="waves-effect" style="color : black;">
+                        <a href="{{ route('quatiers.index') }}" class="waves-effect" style="color : black;">
                             <div class="card-body">
                                 <div class="row" style="padding:50px 0px 50px 0px">
                                     <div class="col-md-3" style="text-align: center">
                                         <h4 class="card-title font-20 mt-0"><i style="font-size: 50px;" class="ti-plus"></i></h4></div>
-                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Ajouter</h4></div>
+                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Nos Quartiers</h4></div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="card m-b-30">
-                        <a href="#" class="waves-effect" style="color : black;">
+                        <a href="{{ route('biens.index') }}" class="waves-effect" style="color : black;">
                             <div class="card-body">
                                 <div class="row" style="padding:50px 0px 50px 0px">
                                     <div class="col-md-3" style="text-align: center">
                                         <h4 class="card-title font-20 mt-0"><i style="font-size: 50px;" class="ti-layout-list-thumb"></i></h4></div>
-                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Liste</h4></div>
+                                    <div class="col-md-9"><h4 class="card-title font-50 mt-0">Nos Biens</h4></div>
                                 </div>
                             </div>
                         </a>

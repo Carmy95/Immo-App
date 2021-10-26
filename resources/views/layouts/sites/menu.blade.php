@@ -37,7 +37,7 @@
 				<div class="log_reg d-flex flex-row align-items-center justify-content-start">
 					<ul class="d-flex flex-row align-items-start justify-content-start">
                         @guest
-						    <li><a href="#">Se Connecter</a></li>
+						    <li><a href="{{ route('login') }}">Se Connecter</a></li>
                         @else
 						    <li><a href="#">Se Deconnecter</a></li>
                         @endguest
@@ -55,7 +55,7 @@
 					<li class="@if ($active == 'home') active @endif"><a href="{{ route('home') }}">Acceuil</a></li>
 					<li class="@if ($active == 'about') active @endif"><a href="{{ route('about') }}">Qui sommes nous</a></li>
 					<li class="@if ($active == 'bien') active @endif"><a href="{{ route('bien') }}">Biens</a></li>
-					<li class="@if ($active == 'yuy') active @endif"><a href="{{ route('detail') }}">Equipes</a></li>
+					{{-- <li class="@if ($active == 'yuy') active @endif"><a href="{{ route('detail') }}">Equipes</a></li> --}}
 					<li class="@if ($active == 'tel') active @endif"><a href="{{ route('contact') }}">Contacts</a></li>
 				</ul>
 			</nav>

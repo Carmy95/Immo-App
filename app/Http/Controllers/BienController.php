@@ -111,7 +111,12 @@ class BienController extends Controller
      */
     public function edit(Bien $bien)
     {
-        return view('admin.biens.edit');
+        $quatier = Quatier::all();
+        $title = 'Nos Biens';
+        $etat = Etat::all();
+        $datas = Bien::paginate('5');
+        $data = Bien::findOrFail($bien->id);
+        return view('admin.biens.edit', compact('title','datas','data','quatier','etat'));
     }
 
     /**

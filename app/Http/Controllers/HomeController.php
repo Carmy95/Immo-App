@@ -48,9 +48,10 @@ class HomeController extends Controller
     }
     public function home_presonnel()
     {
+        $title = 'Administration';
         $active = 'tel';
         $menu = 'personnel';
-        return view('admin.accueil',compact('active','menu'));
+        return view('admin.accueil',compact('active','menu','title'));
     }
 
     public function erreur()

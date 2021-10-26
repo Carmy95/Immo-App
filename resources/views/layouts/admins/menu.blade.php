@@ -7,7 +7,7 @@
     <div class="topbar-left">
         <div class="text-center">
             <!--<a href="index.html" class="logo">Admiry</a>-->
-            <a href="index.html" class="logo"><img src="assets/images/logo.png" height="33" alt="logo"></a>
+            <a href="index.html" class="logo"><img src="{{ asset('assets/images/logo.png') }}" height="33" alt="logo"></a>
         </div>
     </div>
 
@@ -15,10 +15,10 @@
 
         <div class="user-details">
             <div class="text-center">
-                <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle">
+                <img src="{{ asset('assets/images/users/men.png') }}" alt="" class="rounded-circle">
             </div>
             <div class="user-info">
-                    <h4 class="font-16 text-white">Elena Retson</h4>
+                    <h4 class="font-16 text-white">Traoré Mamadou</h4>
                     <span class="text-white"><i class="fa fa-dot-circle-o text-success"></i> Online</span>
             </div>
         </div>
@@ -30,11 +30,11 @@
                 <li>
                     <a href="#" class="waves-effect">
                         <i class="ti-dashboard"></i>
-                        <span> Tableau de bord <span class="badge badge-primary pull-right">3</span></span>
+                        <span> Tableau de bord </span>
                     </a>
                 </li>
 
-                <li class="has_sub">
+                {{-- <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-desktop"></i> <span> Gestion du Site </span> <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="ti-layout-grid2"></i> Home</a></li>
@@ -91,29 +91,50 @@
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="ti-layout-grid2"></i> Home</a></li>
                         <li><a href="#"><i class="ti-plus"></i> Ajouter</a></li>
-                        <li><a href="#"><i class="ti-home"></i> Les Biens</a></li>
+                        <li><a href="{{ route('biens.index') }}"><i class="ti-home"></i> Les Biens</a></li>
                         <li><a href="#"><i class="ti-search"></i> Recherche</a></li>
                     </ul>
+                </li> --}}
+
+                <li>
+                    <a href="{{ route('villes.index') }}" class="waves-effect">
+                        <i class="ti-home"></i>
+                        <span> Nos Villes </span>
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('communes.index') }}" class="waves-effect">
                         <i class="ti-home"></i>
-                        <span> Les Biens </span>
+                        <span> Nos Communes </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('quatiers.index') }}" class="waves-effect">
+                        <i class="ti-home"></i>
+                        <span> Nos Quartiers </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('biens.index') }}" class="waves-effect">
+                        <i class="ti-home"></i>
+                        <span> Nos Biens </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#" class="waves-effect">
                         <i class="ti-clipboard"></i>
-                        <span> Mes Factures </span>
+                        <span> Les Factures </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#" class="waves-effect">
                         <i class="ti-receipt"></i>
-                        <span> Mes Reçus </span>
+                        <span> Les Reçus </span>
                     </a>
                 </li>
 
@@ -127,13 +148,19 @@
                 <li>
                     <a href="#" class="waves-effect">
                         <i class="ti-bookmark-alt"></i>
-                        <span> Mes Contrats </span>
+                        <span> Les Contrats </span>
                     </a>
                 </li>
 
                 <li class="menu-title text-white">Extra</li>
+                <li>
+                    <a href="{{ route('sliders.index') }}" class="waves-effect">
+                        <i class="ti-bookmark-alt"></i>
+                        <span> Gestion du site </span>
+                    </a>
+                </li>
 
-                <li class="has_sub">
+                {{-- <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-email"></i><span> Messagéries </span> <span class="badge badge-danger pull-right">2</span></a>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="ti-layout-grid2"></i>  Home</a></li>
@@ -149,7 +176,7 @@
                         <li><a href="#"><i class="ti-panel"></i>  Etats</a></li>
                         <li><a href="#"><i class="ti-map-alt"></i>  Localisation</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
